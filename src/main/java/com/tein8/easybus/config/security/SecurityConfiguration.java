@@ -20,7 +20,7 @@ public class SecurityConfiguration {
             .httpBasic()
             .and()
             .authorizeHttpRequests()
-                // 
+                // Onibus
                 .antMatchers(HttpMethod.GET, "/api/onibus/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/onibus").authenticated()
                 .antMatchers(HttpMethod.DELETE, "/api/onibus").hasRole("ADMIN")

@@ -49,7 +49,7 @@ public class OnibusController {
 
     @GetMapping("{cdOnibus}")
     public ResponseEntity<Onibus> show(@PathVariable Long cdOnibus){
-        return ResponseEntity.of(service.getById(cdOnibus));
+        return ResponseEntity.of(service.getByCdOnibus(cdOnibus));
     }
 
     @DeleteMapping("{cdOnibus}")
@@ -57,18 +57,18 @@ public class OnibusController {
     @CacheEvict(value = "onibus", allEntries = true)
     public ResponseEntity<Object> destroy(@PathVariable Long cdOnibus){
 
-        Optional<Onibus> optional = service.getById(cdOnibus);
+        Optional<Onibus> optional = service.getByCdOnibus(cdOnibus);
 
         if(optional.isEmpty())
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 
-        service.deleteById(cdOnibus);
+        service.deleteByCdOnibus(cdOnibus);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
     @PutMapping("{cdOnibus}")
     public ResponseEntity<Onibus> update(@PathVariable Long cdOnibus, @RequestBody @Valid Onibus newOnibus){
-        Optional<Onibus> optional = service.getById(cdOnibus);
+        Optional<Onibus> optional = service.getByCdOnibus(cdOnibus);
 
         if(optional.isEmpty())
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
