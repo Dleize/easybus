@@ -34,7 +34,7 @@ public class DatabaseSeed implements CommandLineRunner {
             new User()
                 .name("Pedro")
                 .email("pedro@fiap.com.br")
-                .password(passwordEncoder.encode("123"))
+                .password(passwordEncoder.encode("123456"))
                 .withRole(new Role("ROLE_USER"))
         );
 
@@ -42,7 +42,7 @@ public class DatabaseSeed implements CommandLineRunner {
             new User()
                 .name("Admin")
                 .email("admin@fiap.com.br")
-                .password(passwordEncoder.encode("123")) 
+                .password(passwordEncoder.encode("123456")) 
                 .withRole(new Role("ROLE_ADMIN"))
         );
 

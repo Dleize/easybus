@@ -20,7 +20,7 @@ public class SecurityConfiguration {
             .httpBasic()
             .and()
             .authorizeHttpRequests()
-                // 
+                // Onibus
                 .antMatchers(HttpMethod.GET, "/api/onibus/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/onibus").authenticated()
                 .antMatchers(HttpMethod.DELETE, "/api/onibus").hasRole("ADMIN")
@@ -34,6 +34,9 @@ public class SecurityConfiguration {
                 // Infra
                 .antMatchers("/h2-console/**").permitAll()
                 
+                // Web
+                .antMatchers(HttpMethod.GET, "/onibus").authenticated()
+                .antMatchers(HttpMethod.POST, "/onibus").hasRole("ADMIN")
                
                 .anyRequest().permitAll()
             .and()

@@ -39,11 +39,11 @@ public class OnibusService {
         repository.save(onibus);
     }
 
-    public Optional<Onibus> getById(Long cdOnibus) {
+    public Optional<Onibus> getByCdOnibus(Long cdOnibus) {
         return repository.findById(cdOnibus);
     }
 
-    public void deleteById(Long cdOnibus) {
+    public void deleteByCdOnibus(Long cdOnibus) {
         repository.deleteById(cdOnibus);
     }
 

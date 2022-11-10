@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head th:replace="_template :: head"></head>
+<body>
+<header th:replace="_template :: header"></header>
+    <main>
+
+        <h2>Onibus</h2>
+        <button><a th:href="${'/onibus/new'}">Cadastrar</a></button>
+        <table>
+            <tr>
+                <td>Código</td>
+                <td>Placa</td>
+                <td>Numero</td>
+                <td>Cod. Empresa</td>
+                <td>Numero da Rota</td>
+                <td>Nome da Rota</td>
+                <td>Marca</td>
+                <td>Capacidade Maxima</td>
+                <td>Passageiros Atual</td>
+                <td>Numero de Entradas</td>
+                <td>Numero de Saidas</td>
+                <td>Sensores</td>
+                <td>Status</td>
+                <td>Deletar</td>
+                <td>Editar</td>
+                <td>Simular Sensores</td>
+            </tr>
+            <tr th:each="onibus : ${onibuss}">
+                <td th:text="${onibus.cdOnibus}"></td>
+                <td th:text="${onibus.dsPlaca}"></td>
+                <td th:text="${onibus.nrOnibus}"></td>
+                <td th:text="${onibus.cdEmpresa}"></td>
+                <td th:text="${onibus.nrRota}"></td>
+                <td th:text="${onibus.nmRota}"></td>
+                <td th:text="${onibus.dsMarca}"></td>
+                <td th:text="${onibus.nrMax}"></td>
+                <td th:text="${onibus.nrAtual}"></td>
+                <td th:text="${onibus.nrEntradas}"></td>
+                <td th:text="${onibus.nrSaidas}"></td>
+                <td th:text="${onibus.nrSensores}"></td>
+                <td th:text="${onibus.dsStatus}"></td>
+                <td class="material-icons"><a th:href="${'/onibus/delete/' +onibus.cdOnibus}" sec:authorize="hasRole('ADMIN')">delete</a></td>
+                <td class="material-icons"><a th:href="${'/onibus/' + onibus.cdOnibus}">edit</a></td>
+                <td class="material-icons"><a th:href="${'/onibus/simular/'+onibus.cdOnibus}">keyboard_command_key</a></td>
+            </tr>
+        </table>
+            
+
+    </main>
+
+</body>
+</html>
