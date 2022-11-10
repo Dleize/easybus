@@ -36,7 +36,7 @@ public class OnibusController {
     
     @GetMapping
     @Cacheable("onibus")
-    public Page<Onibus> index(@PageableDefault(size = 5) Pageable pageable){
+    public Page<Onibus> index(@PageableDefault(size = 10) Pageable pageable){
         return service.listAll(pageable);
     }
 

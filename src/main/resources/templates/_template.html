@@ -1,0 +1,18 @@
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{~/css/style.css}">
+    <title>EasyBus</title>
+   
+</head>
+
+<header class="header" th:fragment="header">
+    <h1>EasyBus</h1>
+    <div class="login-info">
+        <span sec:authentication="principal.name"></span>
+        <a href="/logout">
+            <span class="material-icons">logout</span>
+        </a>
+    </div>
+</header>

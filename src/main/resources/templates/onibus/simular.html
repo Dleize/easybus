@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head th:replace="_template :: head"></head>
+<body>
+<header th:replace="_template :: header"></header>
+    
+    <main>
+        <form class="vertical-form" action="/onibus" method="POST" th:object="${onibus}">
+            <input type="hidden" th:field="*{cdOnibus}" id="cdOnibus">
+            <input type="hidden" th:field="*{dsPlaca}" id="dsPlaca">
+            <input type="hidden" th:field="*{nrOnibus}" id="nrOnibus">
+            <input type="hidden" th:field="*{cdEmpresa}" id="cdEmpresa">
+            <input type="hidden" th:field="*{nrRota}" id="nrRota">
+            <input type="hidden" th:field="*{nmRota}" id="nmRota">
+            <input type="hidden" th:field="*{dsMarca}" id="dsMarca">
+            <input type="hidden" th:field="*{nrMax}" id="nrMax">
+            <input type="hidden" th:field="*{nrAtual}" id="nrAtual">
+            <input type="hidden" th:field="*{nrEntradas}" id="nrEntradas">
+            <input type="hidden" th:field="*{nrSaidas}" id="nrSaidas">
+            <input type="hidden" th:field="*{nrSensores}" id="nrSensores">
+            <input type="hidden" th:field="*{dsStatus}" id="dsStatus">
+            <div>
+                <h2>Simular Sensores</h2>
+                <h3 th:text="'Placa do Onibus: '+ *{dsPlaca}"></h3>
+                <h3 th:text="'Numero do Onibus: '+ *{nrOnibus}"></h3>
+                <h3 th:text="'Status do Onibus: '+ *{dsStatus}"></h3>
+                <h3 th:text="'Numero Maximo: '+ *{nrMax}"></h3>
+                <h3  id="nrAtual" th:text="'Numero Atual: '+ *{nrAtual}"></h3>
+                <label>Sensor Entrada</label>
+                <button id="add" class="material-icons" type="button" onclick="adicionar()">add</button>
+                <label>Sensor Saída</label>
+                <button id="remove" class="material-icons" type="button" onclick="remover()">remove</button>
+            </div>
+        
+            
+            
+            <div class="buttons">
+                <a href="/onibus" class="button cancel">cancelar</a>
+                <input class="button" type="submit" value="cadastrar">
+            </div>
+
+            
+        </form>
+    </main>
+    </body>
+    <script th:src="@{~/js/script.js}"></script>
+</html>

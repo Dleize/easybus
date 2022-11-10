@@ -34,6 +34,9 @@ public class SecurityConfiguration {
                 // Infra
                 .antMatchers("/h2-console/**").permitAll()
                 
+                // Web
+                .antMatchers(HttpMethod.GET, "/onibus").authenticated()
+                .antMatchers(HttpMethod.POST, "/onibus").hasRole("ADMIN")
                
                 .anyRequest().permitAll()
             .and()

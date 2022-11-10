@@ -40,13 +40,18 @@ public class OnibusWebController {
     }
 
     @GetMapping("new")
-    public String form(Onibus onibus){
-        return "onibus/form";
+    public String cadastrar(Onibus onibus){
+        return "onibus/cadastrar";
     }
 
     @PostMapping
     public String create(@Valid Onibus onibus, BindingResult result, RedirectAttributes redirect){
-        if( result.hasErrors() ) return "Onibus/form";
+        if(onibus.getCdOnibus()==null) {
+            if( result.hasErrors() ) return "onibus/cadastrar";
+
+        }else {
+            if( result.hasErrors() ) return "onibus/editar";
+        }
         String message = (onibus.getCdOnibus()==null)?"Tarefa cadastrada com sucesso":"Tarefa atualizada com sucesso";
         service.save(onibus);
         redirect.addFlashAttribute("message", message);
@@ -63,7 +68,13 @@ public class OnibusWebController {
     @GetMapping("{cdOnibus}")
     public ModelAndView edit(@PathVariable Long cdOnibus, Onibus onibus){
         onibus = service.getByCdOnibus(cdOnibus).get();
-        return new ModelAndView("onibus/form").addObject("onibus", onibus);
+        return new ModelAndView("onibus/editar").addObject("onibus", onibus);
+    }
+
+    @GetMapping("simular/{cdOnibus}")
+    public ModelAndView simular(@PathVariable Long cdOnibus, Onibus onibus){
+        onibus = service.getByCdOnibus(cdOnibus).get();
+        return new ModelAndView("onibus/simular").addObject("onibus", onibus);
     }
 
     @GetMapping("confirm/{cdOnibus}")

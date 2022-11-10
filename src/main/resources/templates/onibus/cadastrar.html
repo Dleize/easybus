@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head th:replace="_template :: head"></head>
+<body>
+<header th:replace="_template :: header"></header>
+    
+    <main class="cards">
+        <div class="card lg">
+            <h2>Cadastrar Onibus</h2>
+            <form class="vertical-form" action="/onibus" method="POST" th:object="${onibus}">
+                <label for="dsPlaca">Numero da Placa</label>
+                <input 
+                    placeholder="AAA-3232" 
+                    type="text" 
+                    id="dsPlaca" 
+                    th:field="*{dsPlaca}"
+                    th:classappend="${#fields.hasErrors('dsPlaca')}?invalid"
+                >
+                <span th:errors="*{dsPlaca}"></span>
+
+                <label for="nrOnibus">Numero do Onibus</label>
+                <input 
+                    placeholder="00000" 
+                    type="text" 
+                    id="nrOnibus" 
+                    th:field="*{nrOnibus}"
+                    th:classappend="${#fields.hasErrors('nrOnibus')}?invalid"
+                >
+                <span th:errors="*{nrOnibus}"></span>
+
+                <label for="cdEmpresa">Código da Empresa</label>
+                <input 
+                    placeholder="0001" 
+                    type="text" 
+                    id="cdEmpresa" 
+                    th:field="*{cdEmpresa}"
+                    th:classappend="${#fields.hasErrors('cdEmpresa')}?invalid"
+                >
+                <span th:errors="*{cdEmpresa}"></span>
+
+                <label for="nrRota">Numero da Rota</label>
+                <input 
+                    placeholder="00000" 
+                    type="text" 
+                    id="nrRota" 
+                    th:field="*{nrRota}"
+                    th:classappend="${#fields.hasErrors('nrRota')}?invalid"
+                >
+                <span th:errors="*{nrRota}"></span>
+
+                <label for="nmRota">Nome da Rota</label>
+                <input 
+                    placeholder="Praça da Sé" 
+                    type="text" 
+                    id="nmRota" 
+                    th:field="*{nmRota}"
+                    th:classappend="${#fields.hasErrors('nmRota')}?invalid"
+                >
+                <span th:errors="*{nmRota}"></span>
+
+                <label for="dsMarca">Marca</label>
+                <input 
+                    placeholder="Mercedes" 
+                    type="text" 
+                    id="dsMarca" 
+                    th:field="*{dsMarca}"
+                    th:classappend="${#fields.hasErrors('nmRota')}?invalid"
+                >
+                <span th:errors="*{dsMarca}"></span>
+
+                <label for="nrMax">Numero Maximo de Passageiros</label>
+                <input 
+                    placeholder="115" 
+                    type="text" 
+                    id="nrMax" 
+                    th:field="*{nrMax}"
+                    th:classappend="${#fields.hasErrors('nrMax')}?invalid"
+                >
+                <span th:errors="*{nrMax}"></span>
+
+                <label for="nrAtual">Numero Atual de Passageiros</label>
+                <input readonly
+                    placeholder="0" 
+                    type="text" 
+                    id="nrAtual" 
+                    th:field="*{nrAtual}"
+                    th:classappend="${#fields.hasErrors('nrAtual')}?invalid"
+                >
+                <span th:errors="*{nrAtual}"></span>
+
+                <label for="nrEntradas">Numero de Entradas</label>
+                <input 
+                    class="portas"
+                    placeholder="2" 
+                    type="text" 
+                    id="nrEntradas" 
+                    th:field="*{nrEntradas}"
+                    th:classappend="${#fields.hasErrors('nrEntradas')}?invalid"
+                >
+                <span th:errors="*{nrEntradas}"></span>
+
+                <label for="nrSaidas">Numero de Saidas</label>
+                <input 
+                    class="portas"
+                    placeholder="2" 
+                    type="text" 
+                    id="nrSaidas" 
+                    th:field="*{nrSaidas}"
+                    th:classappend="${#fields.hasErrors('nrSaidas')}?invalid"
+                >
+                <span th:errors="*{nrSaidas}"></span>
+
+                <label for="nrSensores">Numero de Sensores</label>
+                <input readonly
+                    placeholder="4" 
+                    type="text" 
+                    id="nrSensores" 
+                    th:field="*{nrSensores}"
+                    th:classappend="${#fields.hasErrors('nrSensores')}?invalid"
+                >
+                <span th:errors="*{nrSensores}"></span>
+
+                <label for="dsStatus">Status</label>
+                <input readonly
+                    placeholder="Cheio" 
+                    type="text" 
+                    id="dsStatus"
+                    th:field="*{dsStatus}"
+                    th:classappend="${#fields.hasErrors('dsStatus')}?invalid"
+                >
+                <span th:errors="*{dsStatus}"></span>
+                
+                
+                <div class="buttons">
+                    <a href="/onibus" class="button cancel">cancelar</a>
+                    <input class="button" type="submit" value="cadastrar">
+                </div>
+            </form>
+        </div>
+    </main>
+    </body>
+    <script th:src="@{~/js/script.js}"></script>
+</html>
