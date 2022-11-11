@@ -4,10 +4,9 @@
 <body>
 <header th:replace="_template :: header"></header>
     <main>
-
         <h2>Onibus</h2>
-        <button><a th:href="${'/onibus/new'}">Cadastrar</a></button>
-        <table>
+        <a class="btn btn-primary" th:href="${'/onibus/new'}">Cadastrar Onibus</a>
+        <table class="table" >
             <tr>
                 <td>Código</td>
                 <td>Placa</td>
@@ -22,9 +21,7 @@
                 <td>Numero de Saidas</td>
                 <td>Sensores</td>
                 <td>Status</td>
-                <td>Deletar</td>
-                <td>Editar</td>
-                <td>Simular Sensores</td>
+                <td>Deletar/Editar/Simular Sensores</td>
             </tr>
             <tr th:each="onibus : ${onibuss}">
                 <td th:text="${onibus.cdOnibus}"></td>
@@ -40,7 +37,7 @@
                 <td th:text="${onibus.nrSaidas}"></td>
                 <td th:text="${onibus.nrSensores}"></td>
                 <td th:text="${onibus.dsStatus}"></td>
-                <td class="material-icons"><a th:href="${'/onibus/delete/' +onibus.cdOnibus}" sec:authorize="hasRole('ADMIN')">delete</a></td>
+                <td class="material-icons"><a th:href="${'/onibus/delete/' + onibus.cdOnibus}" sec:authorize="hasRole('ADMIN')">delete</a></td>
                 <td class="material-icons"><a th:href="${'/onibus/' + onibus.cdOnibus}">edit</a></td>
                 <td class="material-icons"><a th:href="${'/onibus/simular/'+onibus.cdOnibus}">keyboard_command_key</a></td>
             </tr>

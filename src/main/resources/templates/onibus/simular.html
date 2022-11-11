@@ -27,18 +27,15 @@
                 <h3 th:text="'Numero Maximo: '+ *{nrMax}"></h3>
                 <h3  id="nrAtual" th:text="'Numero Atual: '+ *{nrAtual}"></h3>
                 <label>Sensor Entrada</label>
-                <button id="add" class="material-icons" type="button" onclick="adicionar()">add</button>
+                <button id="add" class="material-icons btn btn-danger" type="button" onclick="adicionar()">add</button>
                 <label>Sensor Saída</label>
-                <button id="remove" class="material-icons" type="button" onclick="remover()">remove</button>
+                <button id="remove" class="material-icons btn btn-primary" type="button" onclick="remover()">remove</button>
             </div>
         
-            
-            
             <div class="buttons">
-                <a href="/onibus" class="button cancel">cancelar</a>
-                <input class="button" type="submit" value="cadastrar">
+                <a href="/onibus" class="button cancel btn btn-danger">cancelar</a>
+                <input class="button btn btn-primary" type="submit" value="cadastrar">
             </div>
-
             
         </form>
     </main>
