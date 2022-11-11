@@ -24,6 +24,7 @@ public class SecurityConfiguration {
                 .antMatchers(HttpMethod.GET, "/api/onibus/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/onibus").authenticated()
                 .antMatchers(HttpMethod.DELETE, "/api/onibus").hasRole("ADMIN")
+                .antMatchers(HttpMethod.PUT, "/api/onibus/**").authenticated()
 
                 // Usuários
                 .antMatchers(HttpMethod.GET, "/api/user/**").permitAll()
@@ -43,14 +44,15 @@ public class SecurityConfiguration {
                 .csrf().disable()
                 .headers().frameOptions().disable()
             .and()
-                //.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-            //.and()
                 .formLogin()
-                //.loginPage("/minhapaginadelogin")
+                    .loginProcessingUrl("/login")
+                    .defaultSuccessUrl("/onibus", true)
+                
         ;
 
        return http.build();
     }
+
 
     @Bean
     public PasswordEncoder passwordEncoder(){
