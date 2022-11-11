@@ -4,11 +4,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 import com.tein8.easybus.dto.OnibusDto;
 
 @Entity
+@Table(name = "TB_ONIBUS")
 public class Onibus {
     
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
