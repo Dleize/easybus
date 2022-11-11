@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
+import com.tein8.easybus.dto.OnibusDto;
+
 @Entity
 public class Onibus {
     
@@ -124,6 +126,10 @@ public class Onibus {
     }
     public void setDsStatus(String dsStatus) {
         this.dsStatus = dsStatus;
+    }
+
+    public OnibusDto toDto() {
+        return new OnibusDto(dsPlaca, nrOnibus, cdEmpresa, nmRota, nrRota, dsMarca, nrMax, nrEntradas, nrSaidas, nrSensores, dsStatus);
     }
 
     @Override
