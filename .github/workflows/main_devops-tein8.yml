@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'devops-tein8'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EEC65561FB134154AABC0FAF28CBBE0B }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_43823832ECB84A17A98CE5B232C50E69 }}
           package: '*.jar'
