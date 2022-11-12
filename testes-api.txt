@@ -1,0 +1,8 @@
+Logins:
+ADMIN(Acesso a todas as funções) 
+email: admin@fiap.com.br
+senha: 123456
+
+User
+email: pedro@fiap.com.br
+senha: 123456

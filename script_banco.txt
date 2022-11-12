@@ -1,0 +1,23 @@
+CREATE TABLE EMPRESA (
+    cd_empresa  NUMBER(4) PRIMARY KEY,
+    ds_nome     VARCHAR2(50) NOT NULL,
+    ds_cnpj     VARCHAR2(100) NOT NULL,
+    nr_busoes   NUMBER(4) NOT NULL,
+    dt_cadastro date  NOT NULL
+);
+
+CREATE TABLE ONIBUS (
+    cd_onibus               NUMBER(4)  PRIMARY KEY,
+    ds_placa                VARCHAR2(50)  NOT NULL,
+    cd_empresa              NUMBER(4)  NOT NULL,
+    FOREIGN KEY (cd_empresa) REFERENCES EMPRESA(cd_empresa),
+    nr_rota                 VARCHAR2(50)  NOT NULL,
+    nm_rota                 VARCHAR2(50)  NOT NULL,
+    ds_marca                VARCHAR2(50),
+    nr_max_passageiros      NUMBER(4)  NOT NULL,
+    nr_atual_passageiros    NUMBER(4)  ,
+    nr_portas_entrada       NUMBER(4)  NOT NULL,
+    nr_portas_saida         NUMBER(4)  NOT NULL,
+    nr_sensores             NUMBER(4)  ,
+    ds_status_onibus        VARCHAR2(50) 
+);
